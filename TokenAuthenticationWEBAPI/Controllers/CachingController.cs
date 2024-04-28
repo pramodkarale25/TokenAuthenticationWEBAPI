@@ -9,7 +9,8 @@ namespace TokenAuthenticationWEBAPI.Controllers
     {
         [AllowAnonymous]
         [Route("GetData")]
-        [CacheFilter(TimeDuration = 100)]
+        //[CacheFilter(time:100)]// apply caching on action method when constructor is available
+        [CacheFilter(TimeDuration = 100)]// apply caching on action method when constructor is not available
         public IHttpActionResult getData()
         {
             Dictionary<object, object> obj = new Dictionary<object, object>();

@@ -8,6 +8,11 @@ namespace TokenAuthenticationWEBAPI.Models
     {
         public int TimeDuration { get; set; }
 
+        //public CacheFilter(int time)
+        //{
+        //    TimeDuration = time;
+        //}
+
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
             actionExecutedContext.Response.Headers.CacheControl = new CacheControlHeaderValue
