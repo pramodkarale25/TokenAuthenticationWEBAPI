@@ -1,9 +1,10 @@
-﻿using System;
-using Microsoft.Owin;
-using Owin;
-using TokenAuthenticationWEBAPI.Models;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.OAuth;
+using Owin;
+using System;
 using System.Web.Http;
+using TokenAuthenticationWEBAPI.Models;
 
 [assembly: OwinStartup(typeof(TokenAuthenticationWEBAPI.Startup))]
 
@@ -15,7 +16,7 @@ namespace TokenAuthenticationWEBAPI
         public void Configuration(IAppBuilder app)
         {
             // Enable CORS (cross origin resource sharing) for making request using browser from different domains
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseCors(CorsOptions.AllowAll);
 
             OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions
             {
@@ -25,7 +26,7 @@ namespace TokenAuthenticationWEBAPI
                 TokenEndpointPath = new PathString("/token"),
 
                 //Setting the Token Expired Time (24 hours)
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(100),
 
                 //MyAuthorizationServerProvider class will validate the user credentials
                 Provider = new MyAuthorizationServerProvider()

@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 using System.Web.Http;
+using TokenAuthenticationWEBAPI.Models;
 
 namespace TokenAuthenticationInWebAPI.Controllers
 {
-    public class EmployeeController : ApiController
+    public class TokenAuthenticationController : ApiController
     {
         //This resource is For all types of role
         [Authorize(Roles = "SuperAdmin, Admin, User")]
@@ -42,6 +43,13 @@ namespace TokenAuthenticationInWebAPI.Controllers
                         .Where(c => c.Type == ClaimTypes.Role)
                         .Select(c => c.Value);
             return Ok("Hello " + identity.Name + "Your Role(s) are: " + string.Join(",", roles.ToList()));
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetAllEmployee()
+        {
+            UsersBL bl = new UsersBL();
+            return Ok(bl.GetUsers());
         }
     }
 }
