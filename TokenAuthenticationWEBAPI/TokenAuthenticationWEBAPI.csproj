@@ -131,12 +131,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AsyncAwaitController.cs" />
     <Compile Include="Controllers\CachingController.cs" />
+    <Compile Include="Controllers\MyExceptionController.cs" />
+    <Compile Include="Controllers\ReturnTypeController.cs" />
     <Compile Include="Controllers\TokenAuthenticationController.cs" />
     <Compile Include="Controllers\HttpVerbController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CacheFilter.cs" />
+    <Compile Include="Models\MyExceptionFilter.cs" />
     <Compile Include="Models\MyAuthorizationServerProvider.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserBL.cs" />

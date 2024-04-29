@@ -21,7 +21,6 @@ namespace TokenAuthenticationWEBAPI.Models
                 MustRevalidate = true,
                 Public = true
             };
-        
         }
     }
 }

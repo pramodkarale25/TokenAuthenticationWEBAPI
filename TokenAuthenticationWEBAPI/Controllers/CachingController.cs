@@ -9,7 +9,8 @@ namespace TokenAuthenticationWEBAPI.Controllers
     {
         [AllowAnonymous]
         [Route("GetData")]
-        //[CacheFilter(time:100)]// apply caching on action method when constructor is available
+        //[CacheFilter(time:100)]
+        // apply caching on action method when constructor is available
         [CacheFilter(TimeDuration = 100)]// apply caching on action method when constructor is not available
         public IHttpActionResult getData()
         {
@@ -30,6 +31,7 @@ namespace TokenAuthenticationWEBAPI.Controllers
             obj.Add("61", "Bhubaneshwar");
             obj.Add("71", "Delhi");
             obj.Add("19", "Karnataka");
+            //return NotFound();
             return Ok(obj);
         }
 

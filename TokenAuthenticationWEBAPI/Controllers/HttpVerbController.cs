@@ -53,6 +53,21 @@ namespace TokenAuthenticationWEBAPI.Controllers
         {
             return Ok(new { usr.id, usr.name });
         }
+
+        public IHttpActionResult Put(User user)
+        {
+            return Ok("Resource updated successfully");
+        }
+
+        public IHttpActionResult Patch(User user)
+        {
+            return Ok("Resource updated successfully");
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            return Ok("Resource deleted successfully");
+        }
     }
 
     public class User
