@@ -10,6 +10,11 @@ namespace TokenAuthenticationWEBAPI.Controllers
             return Ok(new string[] { "value 1", "value 2" });
         }
 
+        public IHttpActionResult Get(string user)
+        {
+            return Ok(new User() { id = 1, name = "pramod", salary = "500000" });
+        }
+
         //http://localhost:55291/api/HttpVerb?id=1&id1=2
         public IHttpActionResult Get(int id, int id1)
         {
@@ -49,24 +54,31 @@ namespace TokenAuthenticationWEBAPI.Controllers
         //http://localhost:55291/api/HttpVerb?id=1&name=1235 - Conflicts with above method Post(int id, int id1) where we have 1 or 2 parametrs
         //We have to comment above post methods for this method to work.
         //If our model do not have setter properties then parameter values are not getting bind - getting default values for all members.
-        public IHttpActionResult Post([FromUri] User usr)//[FromUri] - Read complex type from url
+        public IHttpActionResult Post([FromUri] User usr, int a)//[FromUri] - Read complex type from url
+        {
+            return Ok(new { usr.id, usr.name });
+        }
+
+        [Route("api/POSTUSER")]
+        public IHttpActionResult Post(User usr)//[FromUri] - Read complex type from url
         {
             return Ok(new { usr.id, usr.name });
         }
 
         public IHttpActionResult Put(User user)
         {
-            return Ok("Resource updated successfully");
+            return Ok("Resource updated successfully - PUT");
         }
 
+        [Route("api/PatchResource")]
         public IHttpActionResult Patch(User user)
         {
-            return Ok("Resource updated successfully");
+            return Ok("Resource updated successfully - PATCH");
         }
 
         public IHttpActionResult Delete(int id)
         {
-            return Ok("Resource deleted successfully");
+            return Ok("Resource deleted successfully - DELETE");
         }
     }
 

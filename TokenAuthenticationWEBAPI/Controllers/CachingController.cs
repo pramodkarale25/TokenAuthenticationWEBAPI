@@ -8,7 +8,7 @@ namespace TokenAuthenticationWEBAPI.Controllers
     public class CachingController : ApiController
     {
         [AllowAnonymous]
-        [Route("GetData")]
+        [Route("api/Caching/GetData")]
         //[CacheFilter(time:100)]
         // apply caching on action method when constructor is available
         [CacheFilter(TimeDuration = 100)]// apply caching on action method when constructor is not available
